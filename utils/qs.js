@@ -41,7 +41,10 @@ const reportdata = (family_name, family_phone) => {
 }
 
 const headers = {
-  'content-type': 'application/x-www-form-urlencoded'
+  "Host": "api.xixunyun.com",
+  "Content-Type": "application/x-www-form-urlencoded",
+  "Accept-Encoding": "gzip",
+  "User-Agent": "okhttp/3.8.1"
 }
 const loginApi = 'https://api.xixunyun.com/login/api?from=app&version=5.1.1&platform=android'
 const signApi = (token) => {
