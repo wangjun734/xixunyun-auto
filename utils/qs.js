@@ -19,8 +19,8 @@ system: '5.1.1'
 const signdata = qs.stringify({
   address: process.env.ADDRESS,
   address_name: process.env.ADDRESS_NAME,
-  latitude: (base64.encode(encrypt.encrypt(process.env.LATITUDE.encode()))).decode(),
-  longitude:(base64.encode(encrypt.encrypt(process.env.LONGITUDE.encode()))).decode(),
+  latitude: encrypt.encrypt(process.env.LATITUDE),
+  longitude:encrypt.encrypt(process.env.LONGITUDE),
   remark: 0,
   change_sign_resource: 0
 })
