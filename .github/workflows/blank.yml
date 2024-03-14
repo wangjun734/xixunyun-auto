@@ -32,5 +32,6 @@ jobs:
           CODE: ${{ secrets.CODE }}
           TOKEN: ${{ secrets.TOKEN }}
         run: |
+          npm install js-base64
           npm install
           node app.js
