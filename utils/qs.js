@@ -2,6 +2,8 @@ const qs = require('qs')
 global.navigator = {appName: 'nodejs'}; // fake the navigator object
 global.window = {}; // fake the window object
 const jsencrypt = require('jsencrypt');
+
+const base64 = require('js-base64').Base64;
 const pubkey = require('./pubkey')
 const encrypt = new jsencrypt()
 encrypt.setPublicKey(pubkey)
@@ -17,8 +19,8 @@ system: '5.1.1'
 const signdata = qs.stringify({
   address: process.env.ADDRESS,
   address_name: process.env.ADDRESS_NAME,
-  latitude: encrypt.encrypt(process.env.LATITUDE),
-  longitude: encrypt.encrypt(process.env.LONGITUDE),
+  latitude: base64.decode(base64.encode(encrypt.encrypt(process.env.LATITUDE))),
+  longitude:base64.decode(base64.encode(encrypt.encrypt(process.env.LONGITUDE))),
   remark: 0,
   change_sign_resource: 0
 })
